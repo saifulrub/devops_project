@@ -15,8 +15,8 @@ pipeline{
                    HOME = '.'
             }
             steps{
-                sh 'npm install'
-                sh 'npm build'
+                sh 'sudo npm install'
+                sh 'sudo npm build'
                 
             }
 
