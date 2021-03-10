@@ -15,8 +15,9 @@ pipeline{
                    HOME = '.'
             }
             steps{
-                sh 'npm install'
-                sh 'npm build'
+                nodejs(nodeJSInstallationName: 'nodejs') 
+                sh 'npm install --only=dev'
+                sh 'npm test'
                 
             }
 
