@@ -2,12 +2,12 @@ pipeline{
     agent any
 
     stages{
-        def commit-id
+        def commit_id
         stage('Checkout SCM'){
             steps{
                 checkout scm
                 sh "git rev-parse --short HEAD > .git/commit-id"
-                commit-id = readfile('.git/commit-id').trim()
+                commit_id = readfile('.git/commit-id').trim()
             }
         }
         stage('Build FrontEnd'){
