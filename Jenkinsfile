@@ -1,11 +1,14 @@
-node {
-        def commit_id
-        stage('Checkout SCM'){
-            steps{
-                checkout scm
-                sh "git rev-parse --short HEAD > .git/commit-id"
-                commit_id = readfile('.git/commit-id').trim()
-            }
+pipline {
+ 
+    agent any
+ 
+    stages{
+       
+       stage('Checkout SCM'){
+          steps{
+              checkout scm
+                
+          }
         }
         stage('Build FrontEnd'){
             agent {
@@ -15,7 +18,7 @@ node {
                    HOME = '.'
             }
             steps{
-                sh 'npm install --only=dev'
+                sh 'npm install'
                 sh 'npm build'
                 
             }
@@ -27,9 +30,10 @@ node {
                 }
             steps{
                 sh 'mvn package'
-                archiveArtifacts artifacts: 'target/*.war', followSymlinks: false
+                
             }
             
         }
 
     }
+}
