@@ -9,7 +9,7 @@ pipeline{
         }
         stage('Build FrontEnd'){
             agent {
-                docker { image 'ubuntu:latest'}
+                docker { image 'node:dubnium-alpine3.11'}
             }
             environment {
                    HOME = '.'
