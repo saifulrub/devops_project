@@ -12,12 +12,12 @@ pipeline{
                 docker { image 'node:current-alpine3.13'}
             }
             environment {
-                    HOME = 'pm_config_cache=npm-cache'
+                    HOME = './ npm i'
             }
             steps{
                 sh 'npm install'
                 sh 'npm build'
-                sh 'npm package'
+                
             }
 
         }
