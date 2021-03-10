@@ -9,14 +9,14 @@ pipeline{
         }
         stage('Build FrontEnd'){
             agent {
-                docker { image 'node:current-alpine3.13'}
+                docker { image 'node:ubuntu'}
             }
             environment {
                    HOME = '.'
             }
             steps{
-                sh 'npm install'
-                sh 'npm build'
+                sh 'sudo npm install'
+                sh 'sudo npm build'
                 
             }
 
