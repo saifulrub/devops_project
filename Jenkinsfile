@@ -9,7 +9,7 @@ pipeline{
         }
         stage('Build FrontEnd'){
             agent {
-                docker { image 'node:ubuntu:latest'}
+                docker { image 'ubuntu:latest'}
             }
             environment {
                    HOME = '.'
