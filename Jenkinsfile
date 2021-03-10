@@ -1,7 +1,7 @@
 pipeline{
     agent any
 
-    stages{
+      node {
         def commit_id
         stage('Checkout SCM'){
             steps{
